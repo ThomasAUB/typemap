@@ -18,8 +18,6 @@ map_t::get<12> b = true;
 map_t::get<45> f = 951.2f;
 
 // calling get on an undefined key will compile and return an std::false_type
-map_t::get<1> f;
+map_t::get<1> w;
 
 ```
-
-

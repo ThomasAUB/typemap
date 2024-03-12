@@ -37,21 +37,21 @@ namespace typemap {
 
         template<auto key, typename pair_t>
         struct KeyFinder<key, pair_t> {
-            using type = 
+            using type =
                 typename std::conditional<
-                    key == pair_t::key, 
-                    typename pair_t::type, 
-                    std::false_type
+                key == pair_t::key,
+                typename pair_t::type,
+                std::false_type
                 >::type;
         };
 
         template<auto key, typename pair1_t, typename ... pairs_rest>
         struct KeyFinder<key, pair1_t, pairs_rest...> {
-            using type = 
+            using type =
                 typename std::conditional<
-                    key == pair1_t::key, 
-                    typename pair1_t::type, 
-                    typename KeyFinder<key, pairs_rest...>::type
+                key == pair1_t::key,
+                typename pair1_t::type,
+                typename KeyFinder<key, pairs_rest...>::type
                 >::type;
         };
 
